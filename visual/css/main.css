@@ -1,0 +1,136 @@
+/*General*/
+
+body,html{
+	height: 100%;
+}
+
+#site-wrapper{
+	min-height: 100%;
+	position: relative;
+}
+
+header{
+	padding: 10px 0px 10px 30px;
+}
+
+#ql-logo{
+	background-image: url(../images/Questline-logo.png);
+	background-repeat: no-repeat;
+	background-size:300px 47px;
+	width: 300px;
+	height: 47px;
+}
+
+#main{
+	width: 1000px;
+	margin:0 auto 0 auto;
+	padding-bottom: 200px;
+}
+
+footer{
+	bottom: 0px;
+	left: 0px;
+	height: 200px;
+	position: absolute;
+	width: 100%;
+}
+
+.clear{
+	clear:both;
+}
+
+/*Fonts*/
+
+@font-face{
+	font-family: display;
+	src: url(../fonts/Chunkfive.otf);
+}
+
+/*Colors*/
+.ql-blue{
+	background-color:#05A8AC;
+}
+
+.ql-grey{
+	border-color:#222222;
+	background-color:#2D3D3D;
+}
+
+.ql-base-beige{
+	background-color:#C4B59D;
+}
+
+.ql-content-beige{
+	background-color:#E0D5C1;
+}
+
+.ql-light-beige{
+	background-color: #EEE7DB;
+}
+
+.ql-dark-beige{
+	background-color:#252B29;
+}
+
+/*Recent user box*/
+#recent-questers{
+	height: 200px;
+	padding: 10px;
+	margin-bottom: 25px;
+}
+
+.user-box{
+	margin-right:10px;
+	width: 175px;
+	height: 80px;
+	float:left;
+}
+
+/*Popular window*/
+#popular{
+	margin:20px 0 0 0;
+	width: 100%;
+	height: 750px;
+	float:left;
+}
+
+.popular-tab{
+	cursor: pointer;
+	font-family: display;
+	font-size: 1.4em;
+	display: inline-block;
+	text-align: center;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.popular-tab.active{
+	background-color:#E0D5C1;
+	color:#002827;
+}
+
+.popular-tab.inactive{
+	background-color: #05A8AC;
+	color:#EEE7DB;
+}
+
+.popular-window{
+	padding: 10px;
+}
+
+/*Goal box*/
+
+.goal-box{
+	float:left;
+	width: 30%;
+	height: 100px;
+	margin-right:;
+}
+
+.goal-icon{
+	float:left;
+	height:100%;
+	width: 100px;
+	background-color:#05A8AC;
+}

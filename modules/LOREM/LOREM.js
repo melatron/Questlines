@@ -1,6 +1,6 @@
 'use strict'
 
-var LOREM = (function(userObj,goalObj){
+var LOREM = (function(userObj,goalObj,taskObj){
 
 	//Based on the requestId in the params object, this function executes another and then returns the resulting data.
 	function requestById(params){
@@ -11,9 +11,12 @@ var LOREM = (function(userObj,goalObj){
 			functionToExecute = returnUserData;
 			break;
 			case 101:
-			functionToExecute = addNewUser;
+			functionToExecute = returnUsersData;
 			break;
 			case 102:
+			functionToExecute = addNewUser;
+			break;
+			case 103:
 			functionToExecute = editUser;
 			break;
 			case 200:
@@ -29,8 +32,15 @@ var LOREM = (function(userObj,goalObj){
 		return functionToExecute(params);
 	}
 
-	//REQUEST 100 : Returns an array of however many users are requested.
+	//REQUEST 100 : Returns a specific user.
 	function returnUserData(params){
+		if(params.hasOwnProperty('userId') && HELPERS.isNumber(params.userId)){
+			return {user:userObj.userArray.users[params.userId]}
+		}
+	}
+
+	//REQUEST 101 : Returns an array of however many users are requested.
+	function returnUsersData(params){
 		if(params.hasOwnProperty('amount') && HELPERS.isNumber(params.amount)){
 			var userCollection = {users:[]},
 			users = userObj.userArray.users,
@@ -44,7 +54,7 @@ var LOREM = (function(userObj,goalObj){
 		}
 	}
 
-	//REQUEST 101 : Creates a new user object and stores it in the array.
+	//REQUEST 102 : Creates a new user object and stores it in the array.
 	function addNewUser(params){
 		if(params.hasOwnProperty('user')){
 			var newUser = new User(
@@ -61,7 +71,7 @@ var LOREM = (function(userObj,goalObj){
 		}
 	}
 
-	//REQUEST 102 : Edit user's properties based on passed in parameters
+	//REQUEST 103 : Edit user's properties based on passed in parameters
 	function editUser(params){
 		if(params.hasOwnProperty('userId') && HELPERS.isNumber(params.userId)
 			&& params.hasOwnProperty('changes') && typeof params.changes === 'object'){
@@ -91,7 +101,7 @@ var LOREM = (function(userObj,goalObj){
 	}
 
 	//REQUEST 300 : Returns an array of tasks depending on how many were requested
-	function returnTaskData(){
+	function returnTaskData(params){
 		if(params.hasOwnProperty('amount') && HELPERS.isNumber(params.amount)){
 			var taskCollection = {tasks:[]},
 			tasks = taskObj.taskArray.tasks,
@@ -126,4 +136,4 @@ var LOREM = (function(userObj,goalObj){
 			}
 		}
 	}
-})(USERS,GOALS);
+})(USERS,GOALS,TASKS);
