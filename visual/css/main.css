@@ -11,6 +11,13 @@ body,html{
 
 header{
 	padding: 10px 0px 10px 30px;
+	border-bottom: 2px;
+}
+
+#subheader{
+	height: 20px;
+	border-width: 1px 0 1px 0;
+	border-style: solid;
 }
 
 #ql-logo{
@@ -22,7 +29,9 @@ header{
 }
 
 #main{
-	width: 1000px;
+	max-width: 1300px;
+	width: 80%;
+	min-width: 960px;
 	margin:0 auto 0 auto;
 	padding-bottom: 200px;
 }
@@ -33,6 +42,8 @@ footer{
 	height: 200px;
 	position: absolute;
 	width: 100%;
+	border-width: 4px 0 0 0;
+	border-style: solid;
 }
 
 .clear{
@@ -46,9 +57,27 @@ footer{
 	src: url(../fonts/Chunkfive.otf);
 }
 
+@font-face{
+	font-family: body;
+	src: url(../fonts/Aller.ttf);
+}
+
 /*Colors*/
 .ql-blue{
+	border-color:#006F75;
 	background-color:#05A8AC;
+}
+
+.ql-purple{
+	background-color: #af64b8;
+}
+
+.ql-red{
+	background-color: #c54b66
+}
+
+.ql-green{
+	background-color: #7abc08;
 }
 
 .ql-grey{
@@ -57,14 +86,16 @@ footer{
 }
 
 .ql-base-beige{
-	background-color:#C4B59D;
+	background-color:#D6C2AB;
 }
 
 .ql-content-beige{
+	border-color:#a18c65;
 	background-color:#E0D5C1;
 }
 
 .ql-light-beige{
+	border-color:#664E27;
 	background-color: #EEE7DB;
 }
 
@@ -89,9 +120,11 @@ footer{
 /*Popular window*/
 #popular{
 	margin:20px 0 0 0;
+	border-width: 1px;
+	border-style: solid;
 	width: 100%;
-	height: 750px;
 	float:left;
+	padding-bottom: 20px;
 }
 
 .popular-tab{
@@ -122,15 +155,43 @@ footer{
 /*Goal box*/
 
 .goal-box{
+	cursor: pointer;
 	float:left;
-	width: 30%;
-	height: 100px;
-	margin-right:;
+	width: 300px;
+	height: 120px;
+	margin:5px;
+	border-width:1px;
+	border-style: solid;
 }
 
 .goal-icon{
 	float:left;
 	height:100%;
+	width: 120px;
+}
+
+.goal-icon-img{
+	margin: 10px;
 	width: 100px;
-	background-color:#05A8AC;
+	height: 100px;
+}
+
+.goal-info{
+	font-family: body;
+	float:left;
+	width: 50%;
+	padding: 5px;
+}
+
+.goal-title{
+	font-family: display;
+	color:#002827;
+}
+
+.goal-experience{
+	color:#60513B;
+}
+
+.goal-description{
+	font-size:0.8em;
 }

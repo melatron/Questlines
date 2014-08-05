@@ -17,13 +17,37 @@
 		}
 	});
 
-	LOREM.sendRequest({requestId:200,amount:10},function(response){
+	LOREM.sendRequest({requestId:200,amount:20},function(response){
 		questHub.controller('PopularGoals',function(){
-			this.goals = response.goals;
+			this.goals = HELPERS.shuffleArray(response.goals);
+			this.getColor = function(type){
+				switch(type){
+					case 'relationship':
+					case 'health':
+					case 'fitness':
+						return 'ql-red';
+						
+					case 'work':
+					case 'travel':
+					case 'hobby':
+						return 'ql-green';
+
+					case 'education':
+						return 'ql-purple';
+
+					case 'technology':
+					case 'default':
+					default:
+						return 'ql-blue';
+				}
+			};
+			this.removeGoal = function(index){
+				this.goals.splice(index,1);
+			}
 		});
 	})
 
-	LOREM.sendRequest({requestId:300,amount:10},function(response){
+	LOREM.sendRequest({requestId:300,amount:20},function(response){
 		questHub.controller('PopularTasks',function(){
 			this.tasks = response.tasks;
 		})

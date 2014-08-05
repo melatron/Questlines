@@ -21,6 +21,7 @@
 			<div id="ql-logo"></div>
 			<nav></nav>
 		</header>
+		<div id="subheader" class="ql-content-beige"></div>
 		<div id="main" class="ql-base-beige">
 			<!--Popular Goals and Tasks-->
 			<section id="popular" class="ql-content-beige" ng-controller='Popular as popular'>
@@ -29,7 +30,7 @@
 				</div>
 				<div id="popular-goals" class="popular-window" ng-show="popular.tabIsSelected(1)" ng-controller="PopularGoals as popGoals">
 					<div class="goal-box ql-light-beige" ng-repeat="goal in popGoals.goals">
-						<div class="goal-icon {{goal.type}}"></div>
+						<div class="goal-icon {{popGoals.giveColor(goal.type)}} {{goal.type+'-icon'}} {{popGoals.getColor(goal.type)}}"><img class="goal-icon-img" ng-src="visual/images/quest-icons/ql-{{goal.type}}-icon.png"></img></div>
 						<div class="goal-info">
 							<div class="goal-title">{{goal.title}}</div>
 							<div class="goal-experience">{{goal.exp+' EXP'}}</div>
