@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="questHub">
+<head>
+	<meta charset="UTF-8">
+	<title>Questlines</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<!--Javascript-->
+	<script src="lib/jquery/dist/jquery.min.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-route/angular-route.min.js"></script>
+	<script src="lib/angular-resource/angular-resource.min.js"></script>
+	<script src="modules/HELPERS.js"></script>
+	<script src="modules/LOREM/USERS.js"></script>
+	<script src="modules/LOREM/GOALS.js"></script>
+	<script src="modules/LOREM/TASKS.js"></script>
+	<script src="modules/LOREM/LOREM.js"></script>
+	<script src="app/app.js"></script>
+</head>
+<body class="ql-base-beige">
+	<div id="site-wrapper">
+		<header class="ql-blue">
+			<div id="ql-logo"></div>
+			<nav id="header-menu">
+				
+			</nav>
+		</header>
+		<div id="subheader" class="ql-content-beige"></div>
+		<div id="main" class="ql-base-beige">
+			<!--Popular Goals and Tasks-->
+			<section id="popular" class="ql-content-beige" ng-controller='Popular as popular'>
+				<div id="popular-tabs">
+					<span id="goal-tab" class="popular-tab" ng-class="{active:popular.tabIsSelected(1),inactive:!popular.tabIsSelected(1)}" ng-click="popular.selectTab(1)">Goals</span><span id="task-tab" class="popular-tab" ng-class="{active:popular.tabIsSelected(2),inactive:!popular.tabIsSelected(2)}" ng-click="popular.selectTab(2)">Tasks</span>
+				</div>
+				<div id="popular-goals" class="popular-window" ng-show="popular.tabIsSelected(1)" ng-controller="PopularGoals as popGoals">
+					<div class="goal-box ql-light-beige" ng-repeat="goal in popGoals.goals">
+						<div class="goal-icon {{popGoals.giveColor(goal.type)}} {{goal.type+'-icon'}} {{popGoals.getColor(goal.type)}}"><img class="goal-icon-img" ng-src="images/quest-icons/ql-{{goal.type}}-icon.png"></img></div>
+						<div class="goal-info">
+							<div class="goal-title">{{goal.title}}</div>
+							<div class="goal-experience">{{goal.exp+' EXP'}}</div>
+							<div class="goal-description">{{goal.description}}</div>
+						</div>
+					</div>
+				</div>
+				<div id="popular-tasks" class="popular-window" ng-show="popular.tabIsSelected(2)" ng-controller="PopularTasks as popTasks">
+					<div class="task-box ql-light-beige" ng-repeat="task in popTasks.tasks">
+						<div class="task-title">{{task.title}}</div>
+						<div class="task-icon {{task.type}}"></div>
+						<div class="task-experience">{{task.exp+' EXP'}}</div>
+					</div>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<div id="recent-questers" class="ql-dark-beige" ng-controller="RecentQuesters as recent">
+				<div class="user-box ql-blue" ng-repeat="user in recent.users">
+					<div class="avatar"></div>
+					<div class="user-info">
+						<div class="username-text">{{user.username}}</div>
+						<div class="user-experience">{{user.exp+' EXP'}}</div>
+						<div class="real-names">{{user.firstName +' '+user.lastName}}</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<footer class="ql-grey">
+		</footer>
+	</div>
+</body>
+</html>

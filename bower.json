@@ -1,0 +1,26 @@
+{
+  "name": "Questlines",
+  "version": "0.0.1",
+  "homepage": "https://github.com/melatron/Questlines",
+  "authors": [
+    "Kristian Ignatov <christianignatov@gmail.com>"
+  ],
+  "description": "Achievments",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.23",
+    "angular-resource": "~1.2.23",
+    "toastr": "~2.0.3"
+  }
+}
